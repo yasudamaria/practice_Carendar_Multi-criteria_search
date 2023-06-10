@@ -1,5 +1,12 @@
 # README
 
+# 練習用に作成したアプリケーション
+- プログラミングスクールインターン生時代に受講生がつけたがった機能を練習用につけたもの。
+
+# 機能
+- カレンダー
+- 複数条件検索
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
