@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "calendar", :media => "all" %>
+
+<h3>投稿を検索</h3>
+    <%= form_tag({controller:"tweets",action:"calendar"}, method: :get) do %>
+              <%= select_tag :user_id,
+                     options_from_collection_for_select(User.all, :id, :name, params[:user_id]),
+                     {
+                       prompt: 'ユーザー検索',
+                       onchange: 'submit(this.form);'
+                     }
+      %>
+<% end %>
+
+<%= month_calendar(events: @tweets) do |date, t| %>
+    <%= date.day %>
+    <% t.each do |t| %>
+        <div class="calendar-item">
+            <p class="title"><%= t.title %></p>
+            <p class="body">
+                <%= link_to t.body, tweet_path(t.id) %>
+                <br>(<%=link_to t.user.name, user_path(t.user_id) %>)
+            </P>
+        </div>
+    <% end %>
+<% end %>
+
+<%= link_to '一覧表示', tweets_path %>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>

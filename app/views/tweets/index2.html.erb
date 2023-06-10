@@ -1,0 +1,44 @@
+<h1>ransack複数検索機能</h1>
+
+<%= search_form_for @p, url: tweets_index2_path do |f| %>
+  <div class = 'nav-up'>
+    <%= f.select :title_cont,  {'大学': "大学", '趣味': "趣味", "バイト": "バイト","その他": "その他"}, { include_blank: '選択してください'}, class: "input-box" %>
+  </div>
+  <div class = 'nav-up'>
+    <%= f.text_field :body_cont, placeholder: "キーワードから探す", class: "input-box" %>
+    <button class="search-button">
+      検索
+    </button>
+  </div>
+
+<% end %>
+
+
+<% if @results.present? %>
+  <ul class='item-lists'>
+    <% @results.each do |t| %>
+      <div class="tweet">
+      <%= t.body %>
+      <%= t.title %>
+    </div>
+    <%= link_to "詳細へ", tweet_path(t.id) %>
+    <% end %>
+  </ul>
+<% else %>
+  <div>
+    <p>一致する投稿がありません。条件を変えて検索してみよう！</p>
+  </div>
+  <ul class='item-lists'>
+    <% @tweets.all.each do |t| %>
+      <div class="tweet">
+      <%= t.body %>
+      <%= t.title %>
+    </div>
+    <%= link_to "詳細へ", tweet_path(t.id) %>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Tweet一覧に戻る", tweets_path %>
+<%= link_to 'カレンダーへ', calendar_path %>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>

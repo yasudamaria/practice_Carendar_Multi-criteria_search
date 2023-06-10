@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyText
+  start_time: 2022-08-05 20:33:00
+
+two:
+  title: MyString
+  body: MyText
+  start_time: 2022-08-05 20:33:00

@@ -1,0 +1,61 @@
+.simple-calendar {
+    width: 1000Px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+thead {
+    background-color: rgb(89, 119, 219);
+    color: rgb(251, 239, 222);
+    th {
+        text-align: center !important;
+    }
+}
+
+.calendar-heading {
+    text-align: center;
+    
+}
+
+.calendar-title {
+    font-size: 30px;
+}
+
+tbody {
+    background-color: rgb(251, 239, 222);
+}
+
+
+.simple-calendar .wday-6 {
+    background: rgb(212, 224, 235);
+}
+
+.simple-calendar .wday-0 {
+    background: rgb(238, 215, 215);
+}
+
+.simple-calendar .prev-month ,.simple-calendar .next-month{
+    background: rgb(214, 208, 200);
+}
+
+.calendar-item {
+    background-color: ivory;
+    border-radius: 15px;
+    margin: 2px;
+    padding: 2px;
+}
+
+.title  {
+    font-size: 6px;
+    background-color: rgb(214, 208, 200);
+    border-radius: 15px;
+    width: 40px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.body  {
+    font-size: 12px;
+    text-align: end;
+    padding-right: 10px;
+}

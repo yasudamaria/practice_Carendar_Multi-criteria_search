@@ -1,0 +1,31 @@
+<h1>プルダウン検索機能</h1>
+
+<h3>投稿を検索</h3>
+<%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+        <%= select_tag :search,  options_for_select([["大学", "大学"], ["趣味", "趣味"], ["バイト", "バイト"],["その他", "その他"]]), include_blank: "選択して下さい" %>
+        <%= submit_tag '検索する'  %>
+<% end %>
+
+
+
+<h3>Tweet一覧</h3>
+<%= link_to "新規投稿へ", new_tweet_path %>
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+      <%= t.body %>
+      <%= t.title %>
+    </div>
+    <%= link_to "詳細へ", tweet_path(t.id) %>
+  <% end %>
+</div>
+<%= link_to "複数検索へ", tweets_index2_path %>
+<%= link_to 'カレンダーへ', calendar_path %>
+
+
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>　
+<% end %>
+
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+

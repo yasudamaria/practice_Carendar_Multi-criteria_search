@@ -1,0 +1,20 @@
+<h1>GeekTwitter</h1>
+<h3>新規Tweet</h3>
+<%= form_for @tweet do |f| %>
+    <div class="field">
+        <%= f.label :title %>
+        <%= f.select :title, [["大学", "大学"], ["趣味", "趣味"], ["バイト", "バイト"],["その他", "その他"]], include_blank: "選択して下さい" %>
+    </div>
+    <div class="field">
+        <%= f.label :body %>
+        <%= f.text_field :body, :size => 140 %>
+    </div>
+    <div class="field">
+        <%= f.label :start_time %>
+        <%= f.datetime_select :start_time %>
+    </div>
+    <%= f.submit "Tweetする" %>
+<% end %>
+
+<%= link_to "Tweet一覧に戻る", tweets_path %>
+

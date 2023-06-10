@@ -1,0 +1,29 @@
+<h1>GeekTwitter</h1>
+<h3>Tweet詳細</h3>
+<div class="tweet">
+  <p><%= @tweet.user.name %></p>
+  <p><%= @tweet.title %></p>
+  <p><%= @tweet.body %></p>
+  <p><%= @tweet.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+</div>
+
+<div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <br>
+      <%= c.content %>
+      <%= c.created_at.strftime("%Y-%m-%d %H:%M") %>
+    </div>
+      <br>
+  <% end %>
+
+    <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+        <%= f.text_area :content %>
+        <%= button_tag type: "submit" do %>
+            <i class="far fa-comments"></i> コメントする
+        <% end %>
+    <% end %>
+
+
+<%= link_to "Tweet一覧に戻る", tweets_path %>
